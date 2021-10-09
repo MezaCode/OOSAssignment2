@@ -1,6 +1,10 @@
 public class PlayWar {
     public static void main(String[] args) {
-        WarWithRecycling war = new WarWithRecycling(50);
-        war.play();
+
+        WarWithRecycling warWithRecycling = new WarWithRecycling();
+        warWithRecycling.play(50);
+
+        //WarWithoutRecycling warWithoutRecycling = new WarWithoutRecycling();
+        //warWithoutRecycling.play();
     }
 }
