@@ -121,12 +121,3 @@ public class WarWithoutRecycling {
     }
 
 }
-
-//-------------------------------Done------------------------------------------------
-//Todo: constructor
-// Todo: method to initialize decks and player decks and discard deck for each player
-// Todo: method to grab cards for each player
-// Todo: method to handle winner of round
-// Todo: methods to handle war
-//-------------------------------Still need to do------------------------------------------------
-// Todo: method to check who wins round or war
