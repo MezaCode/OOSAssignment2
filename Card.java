@@ -13,8 +13,7 @@ public class Card
     {
         ArrayList<String> suits = 
             new ArrayList<>(Arrays.asList(new String[] {"SPADES", "CLUBS", "DIAMONDS", "HEARTS"}));
-        
-        /* Make sure 'suit' is a valid suit of cards */
+
         try
         {
             if (!suits.contains(suit))

@@ -2,46 +2,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 
-public class Player {
+public class Player 
+{
     public String name;
     public LinkedList<Card> hand;
-    public LinkedList<Card> originalHand;
     public LinkedList<Card> pointPile;
     public ArrayList<Card> warDeck;
     public Card card;
     public int points;
 
-    Player(String name, List<Card> deck){
+    Player(String name, List<Card> deck)
+    {
         this.name = name;
         this.hand = new LinkedList<Card>();
         this.hand.addAll(deck);
-        this.originalHand = new LinkedList<Card>();
-        this.originalHand.addAll(deck);
         pointPile = new LinkedList<Card>();
         points = 0;
     }
 
-    public int getHandSize(){
+    public int getHandSize()
+    {
         return this.hand.size();
     }
 
-    public String getName(){
+    public String getName()
+    {
         return this.name;
     }
 
-    public void addToPointPile(ArrayList<Card> wonCards){
+    public void addToPointPile(ArrayList<Card> wonCards)
+    {
         pointPile.addAll(wonCards);
     }
 
-    public void addToHand(ArrayList<Card> wonCards){
-        for (Card card : wonCards){
+    public void addToHand(ArrayList<Card> wonCards)
+    {
+        for (Card card : wonCards)
             hand.addLast(card);
-        }
     }
-    public int getPointPileSize(){
+
+    public int getPointPileSize()
+    {
         return pointPile.size();
     }
-
-
-
 }
