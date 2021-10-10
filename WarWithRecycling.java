@@ -1,100 +1,67 @@
-import java.util.ArrayList;     
-import java.util.List;          
-import java.util.Collections;   
-import java.util.LinkedList;    
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
-public class WarWithRecycling 
-{
-    public static void main(String[] args) 
-    {
-        ArrayList<Card> masterDeck = new Deck().getDeckOfCards();
+/**
+ * WarWithRecycling.java
+ * 
+ * @author Gideon Reyes
+ * 
+ * WarWithRecycling is an implementation of the card game "War". It implements the original rules of "War" 
+ * by recycling won cards at the bottom of the player's hand. The game ends as soon as one of the following 
+ * conditions is met: a) one player has won all of the cards, or 2) a predetermined number of rounds has 
+ * been played. The winner is the player with the most cards at the end of the game.
+ */
+public class WarWithRecycling {
+    public static ArrayList<Card> masterDeck;
+    public static Player player1;
+    public static Player player2;
 
-        Collections.shuffle(masterDeck);
+    public WarWithRecycling(){
+        initialize();
+    }
 
-        LinkedList<Card> player1Deck = new LinkedList<Card>();
-        LinkedList<Card> player2Deck = new LinkedList<Card>();
-        
-        player1Deck.addAll(masterDeck.subList(0, 25));      
-        player2Deck.addAll(masterDeck.subList(26, masterDeck.size()));
-        
-        while(true)
-        {
-            Card player1Card = player1Deck.pop();
-            Card player2Card = player2Deck.pop();
-            
-            System.out.println("Player 1 plays " + player1Card.toString());
-            System.out.println("Player 2 plays " + player2Card.toString());
-            
-            if(player1Card.getRank() > player2Card.getRank())
-            {
-                player1Deck.addLast(player1Card);
-                player1Deck.addLast(player2Card);
-                System.out.println("PLayer 1 wins the round");
-            }
- 
-            else if(player1Card.getRank() < player2Card.getRank())
-            {
-                player2Deck.addLast(player1Card);   
-                player2Deck.addLast(player2Card);  
-                System.out.println("PLayer 2 wins the round");
-            }
-            
-            else 
-            {
-                System.out.println("*** WAR! ***"); 
-                
-                //creating war cards
-                List<Card> player1WarDeck = new ArrayList<Card>(); 
-                List<Card> player2WarDeck = new ArrayList<Card>();
-                
-                for(int x=0; x<3; x++)
-                { 
-                    if(player1Deck.size() == 0 || player2Deck.size() == 0 )
-                        break;
-                    
-                    System.out.println("War card for player1 is xx.");
-                    System.out.println("War card for player2 is xx.");
+    private void initialize(){
+        masterDeck = new Deck().getDeckOfCards();
+        Collections.shuffle(masterDeck, new Random());
+        player1 = new Player("Player 1", masterDeck.subList(0, 26));
+        player2 = new Player("Player 2", masterDeck.subList(26, masterDeck.size()));
+        player1.pointPile.addAll(player1.hand);
+        player2.pointPile.addAll(player2.hand);
+    }
 
-                    player1WarDeck.add(player1Deck.pop());
-                    player2WarDeck.add(player2Deck.pop());                  
-                }
-
-                if(player1WarDeck.size() == 3 && player2WarDeck.size() == 3 )
-                {
-                    System.out.println("War card for player1 is " + player1WarDeck.get(0).toString());
-                    System.out.println("War card for player2 is " + player2WarDeck.get(0).toString());
-                    
-                    if(player1WarDeck.get(2).getRank() > player2WarDeck.get(2).getRank())
-                    {
-                        player1Deck.addAll(player1WarDeck); //player1 get all 10 cards
-                        player1Deck.addAll(player2WarDeck);
-                        System.out.println("Player 1 wins the war round");
-                    }
-                    
-                    else
-                    {
-                        player2Deck.addAll(player1WarDeck);
-                        player2Deck.addAll(player2WarDeck);
-                        System.out.println("Player 2 wins the war round");
-                    }                     
-                }
-                
-            }
-            
-            if(player1Deck.size() == 0 )
-            {
-                System.out.println("GAME OVER");
-                System.out.println("Player 1 wins the game!");
-                break;
-            }
-
-            else if(player2Deck.size() == 0)
-            {
-                System.out.println("GAME OVER");
-                System.out.println("Player 2 wins the game!");
-                break;
-            }
+    /**
+     * Starts the game of "War"
+     * 
+     * @param rounds Number of rounds to play
+     */
+    public void play(int rounds){
+        WarUtils warUtils = new WarUtils(rounds);
+        int roundsPlayed = 0;
+        while(true){
+            warUtils.printScore(player1, player2);
+            clearPointPiles(player1, player2);
+            warUtils.playRound(masterDeck, player1, player2);
+            roundsPlayed++;
+            addPointsPileToHand(player1, player2);
+            clearPointPiles(player1, player2);
+            addHandToPointsPile(player1, player2);
+            warUtils.checkForGameOver(player1, player2, roundsPlayed);
         } 
+    }
 
-    }    
+    private void clearPointPiles(Player player1, Player player2){
+        player1.pointPile.clear();
+        player2.pointPile.clear();
+    }
+
+    private void addHandToPointsPile(Player player1, Player player2){
+        player1.pointPile.addAll(player1.hand);
+        player2.pointPile.addAll(player2.hand);
+    }
+
+    private void addPointsPileToHand(Player player1, Player player2){
+        player1.hand.addAll(player1.pointPile);
+        player2.hand.addAll(player2.pointPile);
+    }
 }
