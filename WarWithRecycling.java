@@ -32,7 +32,8 @@ public class WarWithRecycling extends WarType{
 
     /**
      * Starts the game of "War"
-     *
+     * 
+
      * @param rounds Number of rounds to play
      */
     public void play(int rounds){
@@ -47,6 +48,7 @@ public class WarWithRecycling extends WarType{
             clearPointPiles(player1, player2);
             addHandToPointsPile(player1, player2);
             warUtils.checkForGameOver(player1, player2, roundsPlayed);
+
         }
     }
 
@@ -68,4 +70,6 @@ public class WarWithRecycling extends WarType{
         player1.hand.addAll(player1.pointPile);
         player2.hand.addAll(player2.pointPile);
     }
+
 }
+

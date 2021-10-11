@@ -4,9 +4,9 @@ import java.util.LinkedList;
 
 /**
  * Player.java
- *
+ * 
  * @author Mazen Shaban
- *
+ * 
  * Player is an object class to represent a player in a card game of "War". Contains all fields
  * necessary to play a game of "War".
  */

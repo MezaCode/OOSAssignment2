@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 /**
  * WarUtils.java
- *
+ * 
  * @author Gideon Reyes
- *
- * WarUtils is a utility class for the card game "War". This class contains the game logic for "War" and
+ * 
+ * WarUtils is a utility class for the card game "War". This class contains the game logic for "War" and 
  * is flexible to allow different variations of "War" to be played.
  */
 public class WarUtils {
@@ -20,7 +20,7 @@ public class WarUtils {
 
     /**
      * Initiates a round of "War"
-     *
+     * 
      * @param masterDeck The master deck of cards from which the players' hands are dealt
      * @param player1 Player 1 object
      * @param player2 Player 2 object
@@ -41,30 +41,30 @@ public class WarUtils {
         }
         else if (player1.card.getRank() < player2.card.getRank()){
             player2.pointPile.addLast(player1.card);
-            player2.pointPile.addLast(player2.card);
+            player2.pointPile.addLast(player2.card);  
             System.out.println("Player 2 wins the round");
         }
-        else
+        else 
             war(player1, player2, false);
     }
 
     private void initializeWar(Player player1, Player player2, boolean tie){
         if (!tie) {
-            player1.warDeck = new ArrayList<Card>();
+            player1.warDeck = new ArrayList<Card>(); 
             player2.warDeck = new ArrayList<Card>();
             player1.warDeck.add(player1.card);
             player2.warDeck.add(player2.card);
         }
-        for(int x=0; x<2; x++) {
+        for(int x=0; x<2; x++) { 
             if (player1.hand.size() == 0 || player2.hand.size() == 0 )
                 gameOver(player1, player2);
             player1.warDeck.add(player1.hand.pop());
-            player2.warDeck.add(player2.hand.pop());
+            player2.warDeck.add(player2.hand.pop());                  
         }
     }
 
     private void war(Player player1, Player player2, boolean tie){
-        System.out.println("*** WAR! ***");
+        System.out.println("*** WAR! ***"); 
         initializeWar(player1, player2, tie);
         compareWarCards(player1, player2);
     }
@@ -92,19 +92,19 @@ public class WarUtils {
 
     /**
      * Checks the conditions to end the game
-     *
+     * 
      * @param player1 Player 1 object
      * @param player2 Player 2 object
      */
     public void checkForGameOver(Player player1, Player player2) {
-        if(player2.hand.size() == 0 || player1.hand.size() == 0 ||
-                player1.pointPile.size() >= 26 || player2.pointPile.size() >= 26)
+        if(player2.hand.size() == 0 || player1.hand.size() == 0 || 
+            player1.pointPile.size() >= 26 || player2.pointPile.size() >= 26)
             gameOver(player1, player2);
     }
 
     /**
      * Checks the conditions to end the game
-     *
+     * 
      * @param player1 Player 1 object
      * @param player2 Player 2 object
      * @param roundsPlayed Rounds played
@@ -128,7 +128,7 @@ public class WarUtils {
 
     /**
      * Prints the score for each player
-     *
+     * 
      * @param player1 Player 1 object
      * @param player2 Player 2 object
      */

@@ -13,6 +13,7 @@ import java.util.Random;
  * player with the most cards in his/her points pile at the end of the game.
  */
 public class WarWithoutRecycling extends WarType{
+
     public static ArrayList<Card> masterDeck;
     public static Player player1;
     public static Player player2;
@@ -37,6 +38,6 @@ public class WarWithoutRecycling extends WarType{
             warUtils.printScore(player1, player2);
             warUtils.playRound(masterDeck, player1, player2);
             warUtils.checkForGameOver(player1, player2);
-        }
+        } 
     }
 }

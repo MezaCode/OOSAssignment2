@@ -3,18 +3,18 @@ import java.util.ArrayList;
 
 /**
  * Card.java
- *
+ * 
  * @author Gideon Reyes
- *
+ * 
  * Card is an object class to represent a playing card. Cannot represent a Joker card.
  */
 public class Card {
     private int rank;
     private String suit;
-
+    
     public Card(String suit, int rank){
-        ArrayList<String> suits =
-                new ArrayList<>(Arrays.asList(new String[] {"SPADES", "CLUBS", "DIAMONDS", "HEARTS"}));
+        ArrayList<String> suits = 
+            new ArrayList<>(Arrays.asList(new String[] {"SPADES", "CLUBS", "DIAMONDS", "HEARTS"}));
         try{
             if (!suits.contains(suit))
                 throw new Exception(suit + " is not a valid suit.");

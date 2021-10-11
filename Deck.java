@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 /**
  * Deck.java
- *
+ * 
  * @author Gideon Reyes
- *
+ * 
  * Deck is an object class to represent a deck of playing cards. Does not include Joker cards.
  */
 public class Deck{
