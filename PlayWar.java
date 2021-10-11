@@ -1,17 +1,29 @@
+/**
+ * PlayWar.java
+ *
+ * @author Mazen Shaban
+ *
+ * PlayWar is a controller class for the implementation of the card game "War". Picks a version
+ * of "War" to play based on command line arguments.
+ */
 public class PlayWar {
 
     static int gameType;
-    static int roundsToPlay;
+    public static int roundsToPlay;
+    public static WarType warType;
 
     public static void main(String[] args) {
         if (parseArgs(args)) {
             if (gameType == 1) {
-                WarWithRecycling warWithRecycling = new WarWithRecycling();
-                warWithRecycling.play(roundsToPlay);
+                warType = new WarWithRecycling();
             } else if (gameType == 2) {
-                WarWithoutRecycling warWithoutRecycling = new WarWithoutRecycling();
-                warWithoutRecycling.play();
+                warType = new WarWithoutRecycling();
             }
+            else {
+                System.out.println("Error: Game Type Unknown! \nPlease chose 1 for War With Recycling and 2 for War Without Recycling! ");
+                System.exit(1);
+            }
+            warType.play();
         }
         else { System.exit(1);}
     }

@@ -2,10 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 
-public class Player {
+/**
+ * Player.java
+ *
+ * @author Mazen Shaban
+ *
+ * Player is an object class to represent a player in a card game of "War". Contains all fields
+ * necessary to play a game of "War".
+ */
+public class Player{
     public String name;
     public LinkedList<Card> hand;
-    public LinkedList<Card> originalHand;
     public LinkedList<Card> pointPile;
     public ArrayList<Card> warDeck;
     public Card card;
@@ -15,8 +22,6 @@ public class Player {
         this.name = name;
         this.hand = new LinkedList<Card>();
         this.hand.addAll(deck);
-        this.originalHand = new LinkedList<Card>();
-        this.originalHand.addAll(deck);
         pointPile = new LinkedList<Card>();
         points = 0;
     }
@@ -34,20 +39,11 @@ public class Player {
     }
 
     public void addToHand(ArrayList<Card> wonCards){
-        for (Card card : wonCards){
+        for (Card card : wonCards)
             hand.addLast(card);
-        }
     }
+
     public int getPointPileSize(){
         return pointPile.size();
     }
-
-    public void clearPointPile(){
-        if (pointPile.size() > 0) {
-            pointPile.clear();
-        }
-    }
-
-
-
 }

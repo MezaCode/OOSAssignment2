@@ -1,27 +1,25 @@
 import java.util.Arrays;
 import java.util.ArrayList;
 
-public class Card 
-{
+/**
+ * Card.java
+ *
+ * @author Gideon Reyes
+ *
+ * Card is an object class to represent a playing card. Cannot represent a Joker card.
+ */
+public class Card {
     private int rank;
     private String suit;
-    
-    /**
-     * Constructor
-     */
-    public Card(String suit, int rank)
-    {
-        ArrayList<String> suits = 
-            new ArrayList<>(Arrays.asList(new String[] {"SPADES", "CLUBS", "DIAMONDS", "HEARTS"}));
-        
-        /* Make sure 'suit' is a valid suit of cards */
-        try
-        {
+
+    public Card(String suit, int rank){
+        ArrayList<String> suits =
+                new ArrayList<>(Arrays.asList(new String[] {"SPADES", "CLUBS", "DIAMONDS", "HEARTS"}));
+        try{
             if (!suits.contains(suit))
                 throw new Exception(suit + " is not a valid suit.");
         }
-        catch (Exception e)
-        {
+        catch (Exception e){
             System.out.println(e);
         }
         this.rank = rank;
@@ -29,30 +27,24 @@ public class Card
     }
 
     @Override
-    public String toString()
-    {
+    public String toString(){
         String card = "";
-        
         card += getCardProperName();
-        
         card += (" of " + suit) ;
         return card;
     }
 
     /* Accessors */
 
-    public String getSuit()
-    {
+    public String getSuit(){
         return this.suit;
     }
 
-    public int getRank()
-    {
+    public int getRank(){
         return this.rank;
     }
 
-    public String getCardProperName()
-    {
+    public String getCardProperName(){
         String properName;
         switch(rank)
         {
@@ -82,7 +74,7 @@ public class Card
                 break;
             case 10:
                 properName = "TEN";
-                break; 
+                break;
             case 11:
                 properName = "JACK";
                 break;
@@ -94,7 +86,7 @@ public class Card
                 break;
             case 14:
                 properName = "ACE";
-                break;    
+                break;
             default:
                 properName = String.valueOf(rank);
                 break;
