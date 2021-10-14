@@ -11,10 +11,10 @@ https://bicyclecards.com/how-to-play/war/
 
 ## Class Implementation
 The War program uses the following OOP principles:
-- **Creator**: The src.PlayWar class is responsible for creating instances of src.controller.WarType, depending on what the user input is.
-- **Polymorphism**: src.controller.WarWithRecycling and src.controller.WarWithoutRecycling are different implementations of the src.controller.WarType class, they extend src.controller.WarType. This will allow future use of different implementations of War if it is desired.
-- **Low Coupling**: src.controller.WarWithRecycling and src.controller.WarWithoutRecycling class maintain high cohesion by redirecting all of the utility methods (printScore, checkForGameOver, etc.) to the src.controller.WarUtils class. This allows the War implementations to keep a focused responsibility.
-- **High Cohesion**: This was implemented when we organized all of the utility methods for checking certain actions of War in one class (i.e. src.controller.WarUtils).
+- **Creator**: The PlayWar class is responsible for creating instances of WarType, depending on what the user input is.
+- **Polymorphism**: WarWithRecycling and WarWithoutRecycling are different implementations of the WarType class, they extend WarType. This will allow future use of different implementations of War if it is desired.
+- **Low Coupling**: WarWithRecycling and WarWithoutRecycling class maintain high cohesion by redirecting all of the utility methods (printScore, checkForGameOver, etc.) to the WarUtils class. This allows the War implementations to keep a focused responsibility.
+- **High Cohesion**: This was implemented when we organized all of the utility methods for checking certain actions of War in one class (i.e. WarUtils).
 
 
 ## Class Diagram

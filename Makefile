@@ -1,19 +1,28 @@
 all: build_jar clean
 
-build_jar:  src.PlayWar.class src.controller.WarWithRecycling.class src.controller.WarWithoutRecycling.class src.model.Card.class src.model.Deck.class src.model.Player.class src.controller.WarUtils.class ; jar -vcfe0 War.jar WarGame.class *.class
+build_jar:  src/PlayWar.class src/WarWithRecycling.class src/WarWithoutRecycling.class src/Card.class src/Deck.class src/Player.class src/WarUtils.class 
+	jar -vcfe0 War.jar src/PlayWar.class src/WarWithRecycling.class src/WarWithoutRecycling.class src/Card.class src/Deck.class src/Player.class src/WarUtils.class
 
-src.PlayWar.class: src.PlayWar.java ; javac src.PlayWar.java
+src/PlayWar.class: src/PlayWar.java 
+	javac src/PlayWar.java
 
-src.controller.WarWithRecycling.class: src.controller.WarWithRecycling.java ; javac src.controller.WarWithRecycling.java
+src/WarWithRecycling.class: src/WarWithRecycling.java 
+	javac src/WarWithRecycling.java
 
-src.controller.WarWithoutRecycling.class: src.controller.WarWithoutRecycling.java ; javac src.controller.WarWithoutRecycling.java
+src/WarWithoutRecycling.class: src/WarWithoutRecycling.java 
+	javac src/WarWithoutRecycling.java
 
-src.model.Card.class: src.model.Card.java ; javac src.model.Card.java
+src/Card.class: src/Card.java 
+	javac src/Card.java
 
-src.model.Deck.class: src.model.Deck.java ; javac src.model.Deck.java
+src/Deck.class: src/Deck.java 
+	javac src/Deck.java
 
-src.model.Player.class: src.model.Player.java ; javac src.model.Player.java
+src/Player.class: src/Player.java 
+	javac src/Player.java
 
-src.controller.WarUtils.class: src.controller.WarUtils.java ; javac src.controller.WarUtils.java
+src/WarUtils.class: src/WarUtils.java 
+	javac src/WarUtils.java
 
-clean: ; rm *.class
+clean: 
+	$(RM) src/WarWithRecycling.class src/WarWithoutRecycling.class src/Card.class src/Deck.class src/Player.class src/WarUtils.class

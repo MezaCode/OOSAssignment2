@@ -1,15 +1,12 @@
-package src.model;
-
-import src.model.Card;
-
+package src;
 import java.util.ArrayList;
 
 /**
- * src.model.Deck.java
+ * Deck.java
  * 
  * @author Gideon Reyes
  * 
- * src.model.Deck is an object class to represent a deck of playing cards. Does not include Joker cards.
+ * Deck is an object class to represent a deck of playing cards. Does not include Joker cards.
  */
 public class Deck{
     private static ArrayList<Card> deckOfCards;

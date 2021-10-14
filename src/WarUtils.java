@@ -1,16 +1,12 @@
-package src.controller;
-
-import src.model.Card;
-import src.model.Player;
-
+package src;
 import java.util.ArrayList;
 
 /**
- * src.controller.WarUtils.java
+ * WarUtils.java
  * 
  * @author Gideon Reyes
  * 
- * src.controller.WarUtils is a utility class for the card game "War". This class contains the game logic for "War" and
+ * WarUtils is a utility class for the card game "War". This class contains the game logic for "War" and
  * is flexible to allow different variations of "War" to be played.
  */
 public class WarUtils {
@@ -27,14 +23,14 @@ public class WarUtils {
      * Initiates a round of "War"
      * 
      * @param masterDeck The master deck of cards from which the players' hands are dealt
-     * @param player1 src.model.Player 1 object
-     * @param player2 src.model.Player 2 object
+     * @param player1 Player 1 object
+     * @param player2 Player 2 object
      */
     public void playRound(ArrayList<Card> masterDeck, Player player1, Player player2){
         player1.card = player1.hand.pop();
         player2.card = player2.hand.pop();
-        System.out.println("src.model.Player 1 plays " + player1.card.toString());
-        System.out.println("src.model.Player 2 plays " + player2.card.toString());
+        System.out.println("Player 1 plays " + player1.card.toString());
+        System.out.println("Player 2 plays " + player2.card.toString());
         compareCards(player1, player2);
     }
 
@@ -42,12 +38,12 @@ public class WarUtils {
         if (player1.card.getRank() > player2.card.getRank()){
             player1.pointPile.addLast(player1.card);
             player1.pointPile.addLast(player2.card);
-            System.out.println("src.model.Player 1 wins the round");
+            System.out.println("Player 1 wins the round");
         }
         else if (player1.card.getRank() < player2.card.getRank()){
             player2.pointPile.addLast(player1.card);
             player2.pointPile.addLast(player2.card);  
-            System.out.println("src.model.Player 2 wins the round");
+            System.out.println("Player 2 wins the round");
         }
         else 
             war(player1, player2, false);
@@ -78,17 +74,17 @@ public class WarUtils {
         int player1WarDeckSize = player1.warDeck.size();
         int player2WarDeckSize = player2.warDeck.size();
         if (player1WarDeckSize >= 3 && player2WarDeckSize >= 3 ){
-            System.out.println("src.model.Player 1 plays " + player1.warDeck.get(player1WarDeckSize-1).toString());
-            System.out.println("src.model.Player 2 plays " + player2.warDeck.get(player2WarDeckSize-1).toString());
+            System.out.println("Player 1 plays " + player1.warDeck.get(player1WarDeckSize-1).toString());
+            System.out.println("Player 2 plays " + player2.warDeck.get(player2WarDeckSize-1).toString());
             if (player1.warDeck.get(player1WarDeckSize-1).getRank() > player2.warDeck.get(player2WarDeckSize-1).getRank()){
                 player1.pointPile.addAll(player1.warDeck);
                 player1.pointPile.addAll(player2.warDeck);
-                System.out.println("src.model.Player 1 wins the round");
+                System.out.println("Player 1 wins the round");
             }
             else if (player2.warDeck.get(player2WarDeckSize-1).getRank() > player1.warDeck.get(player1WarDeckSize-1).getRank()){
                 player2.pointPile.addAll(player1.warDeck);
                 player2.pointPile.addAll(player2.warDeck);
-                System.out.println("src.model.Player 2 wins the round");
+                System.out.println("Player 2 wins the round");
             }
             else
                 war(player1, player2, true);
@@ -98,8 +94,8 @@ public class WarUtils {
     /**
      * Checks the conditions to end the game
      * 
-     * @param player1 src.model.Player 1 object
-     * @param player2 src.model.Player 2 object
+     * @param player1 Player 1 object
+     * @param player2 Player 2 object
      */
     public void checkForGameOver(Player player1, Player player2) {
         if(player2.hand.size() == 0 || player1.hand.size() == 0 || 
@@ -110,8 +106,8 @@ public class WarUtils {
     /**
      * Checks the conditions to end the game
      * 
-     * @param player1 src.model.Player 1 object
-     * @param player2 src.model.Player 2 object
+     * @param player1 Player 1 object
+     * @param player2 Player 2 object
      * @param roundsPlayed Rounds played
      */
     public void checkForGameOver(Player player1, Player player2, int roundsPlayed){
@@ -125,7 +121,7 @@ public class WarUtils {
         if(player2.pointPile.size() == player1.pointPile.size())
             System.out.println("IT'S A TIE!");
         else{
-            String player = player1.pointPile.size() > player2.pointPile.size() ? "src.model.Player 1" : "src.model.Player 2";
+            String player = player1.pointPile.size() > player2.pointPile.size() ? "Player 1" : "Player 2";
             System.out.println(player + " wins the game!");
         }
         System.exit(0);
@@ -134,11 +130,11 @@ public class WarUtils {
     /**
      * Prints the score for each player
      * 
-     * @param player1 src.model.Player 1 object
-     * @param player2 src.model.Player 2 object
+     * @param player1 Player 1 object
+     * @param player2 Player 2 object
      */
     public void printScore(Player player1, Player player2){
-        System.out.println("src.model.Player 1 score: " + player1.pointPile.size());
-        System.out.println("src.model.Player 2 score: " + player2.pointPile.size());
+        System.out.println("Player 1 score: " + player1.pointPile.size());
+        System.out.println("Player 2 score: " + player2.pointPile.size());
     }
 }

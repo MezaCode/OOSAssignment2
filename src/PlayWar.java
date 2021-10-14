@@ -1,8 +1,5 @@
 package src;
 
-import src.controller.WarType;
-import src.controller.WarWithRecycling;
-import src.controller.WarWithoutRecycling;
 /**
  * PlayWar.java
  *

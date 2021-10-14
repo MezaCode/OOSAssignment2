@@ -1,12 +1,4 @@
-package src.controller;
-
-import src.PlayWar;
-import src.controller.WarType;
-import src.controller.WarUtils;
-import src.model.Card;
-import src.model.Deck;
-import src.model.Player;
-
+package src;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;

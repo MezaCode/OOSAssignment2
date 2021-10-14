@@ -1,14 +1,13 @@
-package src.model;
-
+package src;
 import java.util.Arrays;
 import java.util.ArrayList;
 
 /**
- * src.model.Card.java
+ * Card.java
  * 
  * @author Gideon Reyes
  * 
- * src.model.Card is an object class to represent a playing card. Cannot represent a Joker card.
+ * Card is an object class to represent a playing card. Cannot represent a Joker card.
  */
 public class Card {
     private int rank;

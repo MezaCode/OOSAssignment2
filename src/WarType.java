@@ -1,4 +1,4 @@
-package src.controller;
+package src;
 
 /**
  * WarType.java
@@ -10,8 +10,6 @@ package src.controller;
  * into the rest of the program.
  */
 public interface WarType {
-
-    private void initialize(){}
 
     /**
      * Used to start a game

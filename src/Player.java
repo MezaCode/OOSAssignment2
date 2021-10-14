@@ -1,7 +1,4 @@
-package src.model;
-
-import src.model.Card;
-
+package src;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
