@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.LinkedList;
 
 /**
- * src.model.Player.java
- * 
+ * Player.java
+ *
  * @author Mazen Shaban
- * 
- * src.model.Player is an object class to represent a player in a card game of "War". Contains all fields
+ *
+ * Player is an object class to represent a player in a card game of "War". Contains all fields
  * necessary to play a game of "War".
  */
 public class Player{
@@ -28,14 +28,6 @@ public class Player{
         this.hand.addAll(deck);
         pointPile = new LinkedList<Card>();
         points = 0;
-    }
-
-    public int getHandSize(){
-        return this.hand.size();
-    }
-
-    public String getName(){
-        return this.name;
     }
 
     /**
@@ -55,6 +47,16 @@ public class Player{
     public void addToHand(ArrayList<Card> wonCards){
         for (Card card : wonCards)
             hand.addLast(card);
+    }
+
+    /* Accessors */
+
+    public int getHandSize(){
+        return this.hand.size();
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public int getPointPileSize(){

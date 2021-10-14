@@ -3,13 +3,12 @@ package src;
 import src.controller.WarType;
 import src.controller.WarWithRecycling;
 import src.controller.WarWithoutRecycling;
-
 /**
- * src.PlayWar.java
- * 
+ * PlayWar.java
+ *
  * @author Mazen Shaban
- * 
- * src.PlayWar is a controller class for the implementation of the card game "War". Picks a version
+ *
+ * PlayWar is a controller class for the implementation of the card game "War". Picks a version
  * of "War" to play based on command line arguments.
  */
 public class PlayWar {
@@ -35,10 +34,9 @@ public class PlayWar {
     }
 
     /**
-     * checks input validity.
+     * Checks input validity.
      *
-     * @param args array of input arguments from command line.
-     *
+     * @param args Array of input arguments from command line.
      */
     public static boolean parseArgs(String[] args){
         boolean parseSuccess = true;

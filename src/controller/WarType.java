@@ -1,16 +1,16 @@
 package src.controller;
 
 /**
- * src.controller.WarType.java
+ * WarType.java
  *
  * @author Mazen Shaban
  *
- * src.controller.WarType is an interface used for implementation of different types of rules for the card game "War"
- * It sets the default functionality that each rule type must adhere to inorder for it to be pluggable into the rest of the
- * program.
+ * WarType is an interface used for implementation of different types of rules for the card game "War".
+ * It sets the default functionality that each rule type must adhere to inorder for it to be pluggable
+ * into the rest of the program.
  */
-
 public interface WarType {
+
     private void initialize(){}
 
     /**

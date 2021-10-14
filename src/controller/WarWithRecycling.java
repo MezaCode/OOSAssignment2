@@ -13,16 +13,16 @@ import java.util.Random;
 
 
 /**
- * src.controller.WarWithRecycling.java
+ * WarWithRecycling.java
  *
  * @author Gideon Reyes
  *
- * src.controller.WarWithRecycling is an implementation of the card game "War". It implements the original rules of "War"
+ * WarWithRecycling is an implementation of the card game "War". It implements the original rules of "War"
  * by recycling won cards at the bottom of the player's hand. The game ends as soon as one of the following
  * conditions is met: a) one player has won all of the cards, or 2) a predetermined number of rounds has
  * been played. The winner is the player with the most cards at the end of the game.
  */
-public class WarWithRecycling implements WarType {
+public class WarWithRecycling implements WarType{
     public static ArrayList<Card> masterDeck;
     public static Player player1;
     public static Player player2;
@@ -34,16 +34,15 @@ public class WarWithRecycling implements WarType {
     private void initialize(){
         masterDeck = new Deck().getDeckOfCards();
         Collections.shuffle(masterDeck, new Random());
-        player1 = new Player("src.model.Player 1", masterDeck.subList(0, 26));
-        player2 = new Player("src.model.Player 2", masterDeck.subList(26, masterDeck.size()));
+        player1 = new Player("Player 1", masterDeck.subList(0, 26));
+        player2 = new Player("Player 2", masterDeck.subList(26, masterDeck.size()));
         player1.pointPile.addAll(player1.hand);
         player2.pointPile.addAll(player2.hand);
     }
 
     /**
      * Starts the game of "War"
-     * 
-
+     *
      * @param rounds Number of rounds to play
      */
     public void play(int rounds){
@@ -65,8 +64,8 @@ public class WarWithRecycling implements WarType {
     /**
      * Starts the game of "War"
      *
-     * adheres to the implementation of src.controller.WarType interface.
-     * calls local version with parameters to manage the input of rounds to play.
+     * Adheres to the implementation of WarType interface.
+     * Calls local version with parameters to manage the input of rounds to play.
      */
     public void play(){
         this.play(PlayWar.roundsToPlay);
@@ -88,4 +87,3 @@ public class WarWithRecycling implements WarType {
     }
 
 }
-
